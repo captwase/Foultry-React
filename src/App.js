@@ -24,7 +24,7 @@ function App() {
             <Header />
             <Home/>
           </Route>
-          <Route path="/details/:id">
+          <Route path="/details">
             <Header />
             <Details />
           </Route>
