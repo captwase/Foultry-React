@@ -1,15 +1,28 @@
 import React from 'react';
 import {useStateValue} from "./StateProvider";
-import data from '../data';
+
+function Details({id, title, image, price}) {
+    const [{}, dispatch] = useStateValue();
 
 
-function Details(props) {
-            const product = data.products.find(x => x._id === props.match.params.id);
-        
+    const addToBasket = () => {
+        //Add item to the basket...'
+        dispatch({    
+            type: 'ADD_TO_BASKET',
+            item: {
+                id: id,
+                title: title,
+                image: image,
+                price: price,
+            },
+        });
+    };  
         
             return (
                     <div>
-                        <h1>{product.name}</h1>
+                        <img src={image}></img>
+                        <h1>Detail page</h1>
+                        <p className="product_title">{title}</p>
                     </div>
                 );
 }
